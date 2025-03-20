@@ -30,7 +30,7 @@ function Login() {
             <Form.Label>Email</Form.Label>
             <Form.Control
             type="email"
-            placeholder="Enter email id"
+            placeholder="Enter email"
             autoComplete="username"
             value={details.username}
             onChange={updateDetails}
