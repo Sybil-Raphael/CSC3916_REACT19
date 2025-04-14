@@ -25,7 +25,7 @@ const MovieDetail = () => {
     if (error) {
       return <div>Error: {error}</div>;
     }
-
+    console.log("Selected Movie:", selectedMovie); // Debugging line
     if (!selectedMovie) {
       return <div>No movie data available.</div>;
     }
