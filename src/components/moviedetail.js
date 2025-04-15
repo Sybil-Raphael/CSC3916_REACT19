@@ -121,7 +121,7 @@ const MovieDetail = () => {
         ))}
       </Card.Body>
  
-      {/* ✅ Add the Review Form Below This */}
+      {/* Review Form Below This */}
       <Card className="mt-4 p-3">
         <Form onSubmit={handleReviewSubmit}>
           <Form.Group>
