@@ -33,7 +33,7 @@ const MovieDetail = () => {
         rating: Number(rating)
       }, {
         headers: {
-          Authorization: 'Bearer ' + localStorage.getItem('token')
+          Authorization: localStorage.getItem('token')
         }
       });
  
