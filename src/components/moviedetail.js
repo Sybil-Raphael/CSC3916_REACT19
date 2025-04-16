@@ -38,7 +38,9 @@ const MovieDetail = () => {
       });
  
       alert("Review submitted!");
-      window.location.reload(); // or re-fetch movie data
+      dispatch(fetchMovie(movieId)); // refresh movie with new reviews
+      setComment('');
+      setRating('');
     } catch (err) {
       console.error(err);
       alert("Error submitting review");
