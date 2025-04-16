@@ -36,7 +36,7 @@ export function fetchMovie(movieId) {
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json',
-                'Authorization': localStorage.getItem('token')
+                'Authorization': 'Bearer ' + localStorage.getItem('token')
             },
             mode: 'cors'
         }).then((response) => {
