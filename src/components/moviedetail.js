@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Card, ListGroup, ListGroupItem, Image } from 'react-bootstrap';
 import { BsStarFill } from 'react-icons/bs';
 import { useParams } from 'react-router-dom'; // Import useParams
-import env from 'react-dotenv';
+ 
  
 import { Form, Button } from 'react-bootstrap';
 import axios from 'axios';
@@ -26,7 +26,7 @@ const MovieDetail = () => {
   const handleReviewSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post(`${env.REACT_APP_API_URL}/reviews`, {
+      await axios.post(`${process.env.REACT_APP_API_URL}/reviews`, {
         movieId: selectedMovie._id,
         review: comment,
         rating: Number(rating)
