@@ -4,14 +4,12 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Card, ListGroup, ListGroupItem, Image } from 'react-bootstrap';
 import { BsStarFill } from 'react-icons/bs';
 import { useParams } from 'react-router-dom'; // Import useParams
-import actionTypes from '../constants/actionTypes';
-//import runtimeEnv from '@mars/heroku-js-runtime-env'
-const env = process.env;
- 
  
 import { Form, Button } from 'react-bootstrap';
 import axios from 'axios';
 import { useState } from 'react';
+
+const env = process.env;
  
 const MovieDetail = () => {
   const dispatch = useDispatch();
@@ -29,7 +27,7 @@ const MovieDetail = () => {
   const handleReviewSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post(`${process.env.REACT_APP_API_URL}/reviews`, {
+      await axios.post(`${env.REACT_APP_API_URL}/reviews`, {
         movieId: selectedMovie._id,
         review: comment,
         rating: Number(rating)
