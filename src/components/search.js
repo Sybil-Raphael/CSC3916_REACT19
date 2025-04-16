@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { Card, Form, Button, Row, Col } from 'react-bootstrap';
  
+const env = process.env;
+ 
 function SearchMovies() {
   const [query, setQuery] = useState('');
   const [results, setResults] = useState([]);
@@ -10,9 +12,9 @@ function SearchMovies() {
     e.preventDefault();
  
     try {
-      const res = await axios.post('http://localhost:8080/movies/search', { query }, {
+      const res = await axios.post(`${env.REACT_APP_API_URL}/movies/search`, { query }, {
         headers: {
-          Authorization: 'Bearer ' + localStorage.getItem('token')
+          Authorization: localStorage.getItem('token')
         }
       });
       setResults(res.data);
@@ -40,6 +42,9 @@ function SearchMovies() {
         {results.map((movie, index) => (
           <Col md={4} key={index} className="mb-3">
             <Card>
+              {movie.imageUrl && (
+                <Card.Img variant="top" src={movie.imageUrl} alt={movie.title} />
+              )}
               <Card.Body>
                 <Card.Title>{movie.title}</Card.Title>
                 <Card.Text>
