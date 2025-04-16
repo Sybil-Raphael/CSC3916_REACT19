@@ -27,7 +27,7 @@ const MovieDetail = () => {
   const handleReviewSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post(`${process.env.REACT_APP_API_URL}/reviews`, {
+      await axios.post(`${env.REACT_APP_API_URL}/reviews`, {
         movieId: selectedMovie._id,
         review: comment,
         rating: Number(rating)
